@@ -7,10 +7,10 @@ ctx.font = "25px Impact";
 class Alien {
   constructor(game) {
     this.game = game;
-    this.x = 50;
-    this.y = 50;
     this.width = 50;
     this.height = 50;
+    this.x = this.game.width * 0.5 - this.width * 0.5;
+    this.y = this.game.height * 0.5 - this.height * 0.5;
   }
   draw(context) {
     context.fillRect(this.x, this.y, this.width, this.height);
