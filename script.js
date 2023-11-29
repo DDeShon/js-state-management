@@ -11,6 +11,9 @@ class Alien {
     this.width = 50;
     this.height = 50;
   }
+  draw(context) {
+    context.fillRect(this.x, this.y, this.width, this.height);
+  }
 }
 
 class Game {
@@ -20,4 +23,10 @@ class Game {
     this.height = this.canvas.height;
     this.alien = new Alien();
   }
+  render(context) {
+    this.alien.draw(context);
+  }
 }
+
+const game = new Game(canvas);
+game.render(ctx);
