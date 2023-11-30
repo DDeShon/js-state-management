@@ -23,18 +23,21 @@ class Idle extends Alien {
   start() {
     this.color = "red";
   }
+  update() {}
 }
 
 class Charge extends Alien {
   start() {
     this.color = "green";
   }
+  update() {}
 }
 
 class Swarm extends Alien {
   start() {
     this.color = "blue";
   }
+  update() {}
 }
 
 class Game {
@@ -65,4 +68,10 @@ class Game {
 }
 
 const game = new Game(canvas);
-game.render(ctx);
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  game.render(ctx);
+  requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
