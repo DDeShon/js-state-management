@@ -24,6 +24,10 @@ class Game {
     this.height = this.canvas.height;
     this.keys = new Set();
     this.alien = new Alien(this);
+
+    window.addEventListener("keydown", (e) => {
+      this.keys.add(e);
+    });
   }
   render(context) {
     this.alien.draw(context);
