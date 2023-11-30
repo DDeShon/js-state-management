@@ -7,8 +7,8 @@ ctx.font = "25px Impact";
 class Alien {
   constructor(game) {
     this.game = game;
-    this.width = 50;
-    this.height = 50;
+    this.width = 100;
+    this.height = 100;
     this.x = this.game.width * 0.5 - this.width * 0.5;
     this.y = this.game.height * 0.5 - this.height * 0.5;
   }
@@ -22,6 +22,7 @@ class Game {
     this.canvas = canvas;
     this.width = this.canvas.width;
     this.height = this.canvas.height;
+    this.keys = new Set();
     this.alien = new Alien(this);
   }
   render(context) {
