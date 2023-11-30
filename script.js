@@ -17,13 +17,20 @@ class Alien {
   }
 }
 
+class Idle extends Alien {}
+
+class Charge extends Alien {}
+
+class Swarm extends Alien {}
+
 class Game {
   constructor(canvas) {
     this.canvas = canvas;
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.keys = new Set();
-    this.alien = new Alien(this);
+    this.alienStates = [new Idle(), new Charge(), new Swarm()];
+    this.alien = this.alienStates[0];
 
     window.addEventListener("keydown", (e) => {
       this.keys.add(e);
