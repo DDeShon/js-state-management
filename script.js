@@ -45,6 +45,7 @@ class Game {
     this.keys = new Set();
     this.alienStates = [new Idle(this), new Charge(this), new Swarm(this)];
     this.alien = this.alienStates[0];
+    this.alien.start();
 
     window.addEventListener("keydown", (e) => {
       this.keys.add(e);
@@ -54,7 +55,12 @@ class Game {
     });
   }
   render(context) {
+    this.alien.update();
     this.alien.draw(context);
+  }
+  setAlienState(state) {
+    this.alien = this.alienStates[state];
+    this.alien.start();
   }
 }
 
