@@ -11,17 +11,31 @@ class Alien {
     this.height = 100;
     this.x = this.game.width * 0.5 - this.width * 0.5;
     this.y = this.game.height * 0.5 - this.height * 0.5;
+    this.color = "green";
   }
   draw(context) {
+    context.fillStyle = this.color;
     context.fillRect(this.x, this.y, this.width, this.height);
   }
 }
 
-class Idle extends Alien {}
+class Idle extends Alien {
+  start() {
+    this.color = "red";
+  }
+}
 
-class Charge extends Alien {}
+class Charge extends Alien {
+  start() {
+    this.color = "green";
+  }
+}
 
-class Swarm extends Alien {}
+class Swarm extends Alien {
+  start() {
+    this.color = "blue";
+  }
+}
 
 class Game {
   constructor(canvas) {
@@ -29,7 +43,7 @@ class Game {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.keys = new Set();
-    this.alienStates = [new Idle(), new Charge(), new Swarm()];
+    this.alienStates = [new Idle(this), new Charge(this), new Swarm(this)];
     this.alien = this.alienStates[0];
 
     window.addEventListener("keydown", (e) => {
