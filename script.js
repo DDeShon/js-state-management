@@ -28,6 +28,9 @@ class Game {
     window.addEventListener("keydown", (e) => {
       this.keys.add(e);
     });
+    window.addEventListener("keyup", (e) => {
+      this.keys.clear();
+    });
   }
   render(context) {
     this.alien.draw(context);
