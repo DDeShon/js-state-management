@@ -23,7 +23,13 @@ class Idle extends Alien {
   start() {
     this.color = "red";
   }
-  update() {}
+  update() {
+    if (this.game.keys.has("2")) {
+      this.game.setAlienState(1);
+    } else if (this.game.keys.has("3")) {
+      this.game.setAlienState(2);
+    }
+  }
 }
 
 class Charge extends Alien {
@@ -52,6 +58,7 @@ class Game {
 
     window.addEventListener("keydown", (e) => {
       this.keys.add(e);
+      console.log(this.keys);
     });
     window.addEventListener("keyup", (e) => {
       this.keys.clear();
