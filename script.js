@@ -36,14 +36,26 @@ class Charge extends Alien {
   start() {
     this.color = "green";
   }
-  update() {}
+  update() {
+    if (this.game.keys.has("1")) {
+      this.game.setAlienState(0);
+    } else if (this.game.keys.has("3")) {
+      this.game.setAlienState(2);
+    }
+  }
 }
 
 class Swarm extends Alien {
   start() {
     this.color = "blue";
   }
-  update() {}
+  update() {
+    if (this.game.keys.has("1")) {
+      this.game.setAlienState(0);
+    } else if (this.game.keys.has("2")) {
+      this.game.setAlienState(1);
+    }
+  }
 }
 
 class Game {
