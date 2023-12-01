@@ -69,7 +69,7 @@ class Game {
     this.alien.start();
 
     window.addEventListener("keydown", (e) => {
-      this.keys.add(e);
+      this.keys.add(e.key);
       console.log(this.keys);
     });
     window.addEventListener("keyup", (e) => {
