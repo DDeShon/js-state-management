@@ -12,6 +12,8 @@ class Alien {
     this.x = this.game.width * 0.5 - this.width * 0.5;
     this.y = this.game.height * 0.5 - this.height * 0.5;
     this.color = "green";
+    this.counter = 0;
+    this.maxCounter = 200;
   }
   draw(context) {
     context.fillStyle = this.color;
