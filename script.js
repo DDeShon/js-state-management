@@ -13,7 +13,7 @@ class Alien {
     this.y = this.game.height * 0.5 - this.height * 0.5;
     this.color = "green";
     this.counter = 0;
-    this.maxCounter = 200;
+    this.maxCount = 200;
   }
   draw(context) {
     context.fillStyle = this.color;
@@ -37,12 +37,16 @@ class Idle extends Alien {
 class Charge extends Alien {
   start() {
     this.color = "green";
+    this.counter = 0;
   }
   update() {
-    if (this.game.keys.has("1")) {
-      this.game.setAlienState(0);
-    } else if (this.game.keys.has("3")) {
+    if (this.game.keys.has("3")) {
       this.game.setAlienState(2);
+    }
+    this.counter++;
+    console.log(this.counter);
+    if (this.counter > this.maxCount) {
+      this.game.setAlienState(0);
     }
   }
 }
