@@ -24,6 +24,7 @@ class Alien {
 class Idle extends Alien {
   start() {
     this.color = "red";
+    this.text = "idle";
   }
   update() {
     if (this.game.keys.has("2")) {
@@ -38,6 +39,7 @@ class Charge extends Alien {
   start() {
     this.color = "green";
     this.counter = 0;
+    this.text = "charge";
   }
   update() {
     if (this.game.keys.has("3")) {
@@ -54,6 +56,7 @@ class Charge extends Alien {
 class Swarm extends Alien {
   start() {
     this.color = "blue";
+    this.text = "swarm";
   }
   update() {
     if (this.game.keys.has("1")) {
@@ -61,10 +64,6 @@ class Swarm extends Alien {
     } else if (this.game.keys.has("2")) {
       this.game.setAlienState(1);
     }
-  }
-  draw(context) {
-    super.draw(context);
-    context.fillRect(10, 10, 30, 20);
   }
 }
 
@@ -74,6 +73,7 @@ class Game {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.keys = new Set();
+    this.info = document.getElementById("info");
     this.alienStates = [new Idle(this), new Charge(this), new Swarm(this)];
     this.alien = this.alienStates[0];
     this.alien.start();
@@ -92,6 +92,7 @@ class Game {
   setAlienState(state) {
     this.alien = this.alienStates[state];
     this.alien.start();
+    this.info.innerText = this.alien.text;
   }
 }
 
