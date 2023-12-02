@@ -39,7 +39,7 @@ class Charge extends Alien {
   start() {
     this.color = "green";
     this.counter = 0;
-    this.text = "Charge";
+    this.text = `CHARGING! Press 3 to SWARM or wait for the counter to reach ${this.maxCount} to automatically switch to IDLE.`;
   }
   update() {
     if (this.game.keys.has("3")) {
@@ -50,6 +50,10 @@ class Charge extends Alien {
     if (this.counter > this.maxCount) {
       this.game.setAlienState(0);
     }
+  }
+  draw(context) {
+    super.draw(context);
+    context.fillText(this.counter, 15, 30);
   }
 }
 
