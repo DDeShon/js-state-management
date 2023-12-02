@@ -24,7 +24,7 @@ class Alien {
 class Idle extends Alien {
   start() {
     this.color = "red";
-    this.text = "idle";
+    this.text = "Idle";
   }
   update() {
     if (this.game.keys.has("2")) {
@@ -39,7 +39,7 @@ class Charge extends Alien {
   start() {
     this.color = "green";
     this.counter = 0;
-    this.text = "charge";
+    this.text = "Charge";
   }
   update() {
     if (this.game.keys.has("3")) {
@@ -56,7 +56,7 @@ class Charge extends Alien {
 class Swarm extends Alien {
   start() {
     this.color = "blue";
-    this.text = "swarm";
+    this.text = "Swarm";
   }
   update() {
     if (this.game.keys.has("1")) {
@@ -75,8 +75,8 @@ class Game {
     this.keys = new Set();
     this.info = document.getElementById("info");
     this.alienStates = [new Idle(this), new Charge(this), new Swarm(this)];
-    this.alien = this.alienStates[0];
-    this.alien.start();
+    this.alien;
+    this.setAlienState(0);
 
     window.addEventListener("keydown", (e) => {
       this.keys.add(e.key);
