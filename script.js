@@ -24,7 +24,7 @@ class Alien {
 class Idle extends Alien {
   start() {
     this.color = "red";
-    this.text = "Idle";
+    this.text = `Press 2 to CHARGE or 3 to SWARM`;
   }
   update() {
     if (this.game.keys.has("2")) {
@@ -60,7 +60,7 @@ class Charge extends Alien {
 class Swarm extends Alien {
   start() {
     this.color = "blue";
-    this.text = "Swarm";
+    this.text = `SWARMING! Press 1 to IDLE or 2 to CHARGE`;
   }
   update() {
     if (this.game.keys.has("1")) {
