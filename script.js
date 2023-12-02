@@ -24,7 +24,7 @@ class Alien {
 class Idle extends Alien {
   start() {
     this.color = "red";
-    this.text = `Press 2 to CHARGE or 3 to SWARM`;
+    this.text = `IDLE! Press 2 to CHARGE or 3 to SWARM`;
   }
   update() {
     if (this.game.keys.has("2")) {
