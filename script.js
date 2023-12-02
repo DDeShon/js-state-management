@@ -62,6 +62,10 @@ class Swarm extends Alien {
       this.game.setAlienState(1);
     }
   }
+  draw(context) {
+    super.draw(context);
+    context.fillRect(10, 10, 30, 20);
+  }
 }
 
 class Game {
@@ -76,7 +80,6 @@ class Game {
 
     window.addEventListener("keydown", (e) => {
       this.keys.add(e.key);
-      console.log(this.keys);
     });
     window.addEventListener("keyup", (e) => {
       this.keys.clear();
