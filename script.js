@@ -7,17 +7,21 @@ ctx.font = "25px Impact";
 class Alien {
   constructor(game) {
     this.game = game;
-    this.width = 100;
-    this.height = 100;
+    this.spriteWidth = 360;
+    this.spriteHeight = 360;
+    this.width = this.spriteWidth;
+    this.height = this.spriteHeight;
     this.x = this.game.width * 0.5 - this.width * 0.5;
     this.y = this.game.height * 0.5 - this.height * 0.5;
     this.color = "green";
     this.counter = 0;
     this.maxCount = 200;
+    this.image = document.getElementById("locustmorph_large");
   }
   draw(context) {
     context.fillStyle = this.color;
     context.fillRect(this.x, this.y, this.width, this.height);
+    context.drawImage(this.image, this.x, this.y);
   }
 }
 
