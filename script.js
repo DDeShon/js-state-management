@@ -21,7 +21,17 @@ class Alien {
   draw(context) {
     context.fillStyle = this.color;
     context.fillRect(this.x, this.y, this.width, this.height);
-    context.drawImage(this.image, this.x, this.y);
+    context.drawImage(
+      this.image,
+      0,
+      0,
+      this.spriteWidth,
+      this.spriteHeight,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
 }
 
