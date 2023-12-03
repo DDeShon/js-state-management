@@ -17,6 +17,7 @@ class Alien {
     this.counter = 0;
     this.maxCount = 200;
     this.image = document.getElementById("locustmorph_large");
+    this.frameY;
   }
   draw(context) {
     context.fillStyle = this.color;
@@ -24,7 +25,7 @@ class Alien {
     context.drawImage(
       this.image,
       0,
-      0,
+      this.frameY * this.spriteHeight,
       this.spriteWidth,
       this.spriteHeight,
       this.x,
@@ -39,6 +40,7 @@ class Idle extends Alien {
   start() {
     this.color = "red";
     this.text = `IDLE! Press 2 to CHARGE or 3 to SWARM`;
+    this.frameY = 0;
   }
   update() {
     if (this.game.keys.has("2")) {
@@ -54,6 +56,7 @@ class Charge extends Alien {
     this.color = "green";
     this.counter = 0;
     this.text = `CHARGING! Press 3 to SWARM or wait for the counter to reach ${this.maxCount} to automatically switch to IDLE.`;
+    this.frameY = 1;
   }
   update() {
     if (this.game.keys.has("3")) {
@@ -75,6 +78,7 @@ class Swarm extends Alien {
   start() {
     this.color = "blue";
     this.text = `SWARMING! Press 1 to IDLE or 2 to CHARGE`;
+    this.frameY = 2;
   }
   update() {
     if (this.game.keys.has("1")) {
