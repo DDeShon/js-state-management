@@ -58,7 +58,6 @@ class Charge extends Alien {
       this.game.setAlienState(2);
     }
     this.counter++;
-    console.log(this.counter);
     if (this.counter > this.maxCount) {
       this.game.setAlienState(0);
     }
