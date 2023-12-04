@@ -17,9 +17,11 @@ class Alien {
     this.maxCount = 200;
     this.image = document.getElementById("locustmorph_large");
     this.frameX = 0;
+    this.maxFrame = 38;
     this.frameY;
   }
   draw(context) {
+    this.frameX < this.maxFrame ? this.frameX++ : (this.frameX = 0);
     context.drawImage(
       this.image,
       this.frameX * this.spriteWidth,
